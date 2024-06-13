@@ -1,6 +1,9 @@
-const rootUrl = 'http://127.0.0.1:8360/admin/';
+const baseURL = 'http://82.156.25.59:8360'
+// const rootUrl = 'http://127.0.0.1:8360/admin/';
+const rootUrl = baseURL + '/admin/';
 
 const api = {
+    baseURL: baseURL,
     rootUrl : rootUrl,
     // express: {
     //     // 快递物流信息查询使用的是快递鸟接口，申请地址：http://www.kdniao.com/
@@ -18,7 +21,6 @@ const api = {
 	// 北美	  http(s)://up-na0.qiniup.com
 	// 东南亚 http(s)://up-as0.qiniup.com
 };
-
 
 // import api from './config/api'
 // Axios.defaults.baseURL = api.rootUrl;

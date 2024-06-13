@@ -85,7 +85,7 @@
               </div>
               <div class="user-wrap">
                 <div class="avatar-wrap">
-                  <img :src="item.userInfo.avatar" class="avatar-img" />
+                  <img :src="api.baseURL + item.userInfo.avatar" class="avatar-img" />
                   <div class="nickname">{{ item.userInfo.nickname }}</div>
                 </div>
                 <div class="name">姓名：{{ item.userInfo.name }}</div>
@@ -1350,12 +1350,14 @@
 <script>
 import VueBarcode from "../../../node_modules/vue-barcode";
 import ElButton from "../../../node_modules/element-ui/packages/button/src/button.vue";
+import api from '../../config/api'
 // Vue.component(VueBarcode.name, VueBarcode);
 
 // import { Button } from 'element-ui';
 export default {
   data() {
     return {
+      api: api,
       autoGoDelivery: true,
       sfHasValue: {},
       barcodeValue: "test",

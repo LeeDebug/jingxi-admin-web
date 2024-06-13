@@ -22,7 +22,7 @@
 					</el-table-column>
 					<el-table-column label="头像" width="80">
 						<template slot-scope="scope">
-							<img :src="scope.row.avatar" alt="" style="width: 50px;height: 50px">
+							<img :src="api.baseURL + scope.row.avatar" alt="" style="width: 50px;height: 50px">
 						</template>
 					</el-table-column>
 					<!--<el-table-column prop="username" label="会员名称">-->
@@ -59,10 +59,12 @@
 </template>
 
 <script>
+import api from '../../config/api'
 
 export default {
 	data() {
 		return {
+			api: api,
 			page: 1,
 			total: 0,
 			filterForm: {

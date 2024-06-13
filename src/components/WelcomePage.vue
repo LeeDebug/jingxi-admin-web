@@ -59,7 +59,7 @@
                                 <el-table :data="userData" style="width: 100%" height="550" border stripe>
                                     <el-table-column label="头像" width="80">
                                         <template slot-scope="scope">
-                                            <img :src="scope.row.avatar" alt="" style="width: 50px;height: 50px">
+                                            <img :src="api.baseURL + scope.row.avatar" alt="" style="width: 50px;height: 50px">
                                         </template>
                                     </el-table-column>
                                     <el-table-column prop="nickname" label="昵称" width="140"></el-table-column>
@@ -153,9 +153,11 @@
 
 <script>
     import Countdown from './Common/Countdown';
+    import api from '../config/api'
     export default {
         data() {
             return {
+                api: api,
                 dialogVisible: false,
                 infoData: {},
                 activeName2: 'first',
