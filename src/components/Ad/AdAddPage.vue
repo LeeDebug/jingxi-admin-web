@@ -127,7 +127,9 @@
             }
         },
         methods: {
-			handleSuccess(){},
+			handleSuccess(){
+                console.log('=-=-=-> 1111111111: ', 1111111111)
+            },
 			previewIndexImg() {
 				let that = this;
 				that.previewList = [];
@@ -146,6 +148,8 @@
 					.catch(() => {})
 			},
 			uploadIndexImg(request) {
+                console.log('=-=-=-> 222222222: ', this.infoForm.image_url)
+                console.log('=-=-=-> 222222222: ', this.picData.token)
 				const file = request.file;
 				lrz(file).then((rst) => {
 					const config = {
@@ -166,8 +170,13 @@
 				})
 			},
 			handleUploadImageSuccess(res, file) {
+                console.log('=-=-=-> 3333333333: ', this.infoForm.image_url)
+                console.log('=-=-=-> 3333333333: ', this.picData.token)
 			    let url = this.url;
 			    this.infoForm.image_url = url + res.key;
+                this.infoForm.image_url = 'http://' + this.infoForm.image_url + `?token=${this.picData.token}`
+                console.log('=-=-=-> 4444444444: ', this.infoForm.image_url)
+                console.log('=-=-=-> 4444444444: ', this.picData.token)
 			},
             relateSelect(id) {
                 console.log(id);
@@ -203,7 +212,7 @@
                 this.$router.go(-1);
             },
             onSubmitInfo() {
-                console.log(this.infoForm);
+                console.log('onSubmitInfo => first:\n', this.infoForm);
                 // return false;
                 let time = this.infoForm.end_time
                 if (time == 0) {
@@ -231,6 +240,12 @@
                         return false;
                     }
                 }
+                // 检查字符串是否以特定的子串开头
+                if (this.infoForm.image_url.startsWith('sgrbafg6b.hn-bkt.clouddn.com')) {
+                    // 如果是，则添加'http://'到字符串的开始
+                    this.infoForm.image_url = 'http://' + this.infoForm.image_url + `?token=${this.picData.token}`
+                }
+                console.log('onSubmitInfo => then:\n', this.infoForm);
                 this.$refs['infoForm'].validate((valid) => {
                     if (valid) {
                         this.axios.post('ad/store', this.infoForm).then((response) => {

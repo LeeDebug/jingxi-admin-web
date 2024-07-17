@@ -1,5 +1,5 @@
-const baseURL = 'http://82.156.25.59:8360'
-// const rootUrl = 'http://127.0.0.1:8360/admin/';
+const baseURL = 'http://82.156.25.59:8380'
+// const baseURL = 'http://127.0.0.1:8380';
 const rootUrl = baseURL + '/admin/';
 
 const api = {
@@ -12,7 +12,10 @@ const api = {
     //     request_url: 'http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx'
     // },
 	// 4.19更新，物流查询不需要以上配置，只需要在server的config配置阿里云物流接口就可以
-    qiniu: 'http://up-z0.qiniu.com',
+    // qiniu: 'http://up-z0.qiniu.com',
+    // qiniu: 'http://sgrbafg6b.hn-bkt.clouddn.com',
+    // qiniu: 'http://jingxi.s3.cn-south-1.qiniucs.com',
+    qiniu: 'https://up-z2.qiniup.com',
     // 请根据自己创建的七牛的区域进行设置：
     // https://developer.qiniu.com/kodo/manual/1671/region-endpoint
 	// 华东	  http(s)://up.qiniup.com
