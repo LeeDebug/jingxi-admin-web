@@ -127,6 +127,15 @@
             }
         },
         methods: {
+            detailImageUrl (url) {
+                // return 'http://' + infoForm.image_url + `?e=${Date.parse(Date()) / 1000 + 300}&token=${picData.token}
+                const time_300 = Date.parse(Date()) / 1000 + 300
+                console.log('=-=-=-> time_300: ', time_300)
+                return (this.picData && this.picData.token) ? `http://${url}?e=${time_300}&token=${this.picData.token}` : url
+            },
+            handleImageError (error) {
+                console.error('=-=-=-> error: ', error)
+            },
 			handleSuccess(){
                 console.log('=-=-=-> 1111111111: ', 1111111111)
             },
@@ -174,7 +183,7 @@
                 console.log('=-=-=-> 3333333333: ', this.picData.token)
 			    let url = this.url;
 			    this.infoForm.image_url = url + res.key;
-                this.infoForm.image_url = 'http://' + this.infoForm.image_url + `?token=${this.picData.token}`
+                // this.infoForm.image_url = 'http://' + this.infoForm.image_url + `?token=${this.picData.token}`
                 console.log('=-=-=-> 4444444444: ', this.infoForm.image_url)
                 console.log('=-=-=-> 4444444444: ', this.picData.token)
 			},
