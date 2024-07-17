@@ -241,10 +241,10 @@
                     }
                 }
                 // 检查字符串是否以特定的子串开头
-                if (this.infoForm.image_url.startsWith('sgrbafg6b.hn-bkt.clouddn.com')) {
-                    // 如果是，则添加'http://'到字符串的开始
-                    this.infoForm.image_url = 'http://' + this.infoForm.image_url + `?token=${this.picData.token}`
-                }
+                // if (!this.infoForm.image_url.startsWith('sgrbafg6b.hn-bkt.clouddn.com')) {
+                //     // 如果是，则添加'http://'到字符串的开始
+                //     this.infoForm.image_url = 'http://' + this.infoForm.image_url + `?token=${this.picData.token}`
+                // }
                 console.log('onSubmitInfo => then:\n', this.infoForm);
                 this.$refs['infoForm'].validate((valid) => {
                     if (valid) {
